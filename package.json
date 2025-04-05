@@ -20,6 +20,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "devDependencies": {
+    "@types/cssnano": "^5.0.0",
     "@types/node": "^18.11.19",
     "@types/three": "^0.154.0",
     "@typescript-eslint/eslint-plugin": "^5.48.1",

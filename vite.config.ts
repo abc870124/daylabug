@@ -1,26 +1,30 @@
-import {defineConfig} from "vite";
+import { defineConfig } from "vite";
 import autoprefixer from "autoprefixer";
+import cssnano from "cssnano";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-	base: "./",
-	server: {
-		host: "0.0.0.0"
-	},
-	css: {
-		postcss: {
-			plugins: [
-				autoprefixer({
-					overrideBrowserslist: [
-						"Android 4.1",
-						"iOS 7.1",
-						"Chrome > 31",
-						"ff > 31",
-						"ie >= 8",
-						"> 1%",
-					]
-				})
-			]
-		}
-	}
+  base: "/your-repo-name/", // Điều chỉnh cho GitHub Pages
+  server: {
+    host: "0.0.0.0",
+  },
+  css: {
+    postcss: {
+      plugins: [
+        autoprefixer({
+          overrideBrowserslist: [
+            "last 2 versions",
+            "> 1%",
+            "not dead",
+          ],
+        }),
+        cssnano({ preset: "default" }),
+      ],
+    },
+  },
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+    minify: "terser",
+    sourcemap: true,
+  },
 });
